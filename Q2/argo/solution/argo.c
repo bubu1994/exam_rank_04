@@ -62,9 +62,8 @@ char *get_str(FILE *stream)
 			return NULL;
 		}
 		if (c == '\\')
-			res[i++] = getc(stream);//the next char is consumed
-		else
-			res[i++] = c;
+			c = getc(stream);//the next char is consumed
+		res[i++] = c;
 	}
 	return (res);
 }
