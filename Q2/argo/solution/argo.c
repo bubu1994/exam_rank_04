@@ -62,7 +62,7 @@ char *get_str(FILE *stream)
 			return NULL;
 		}
 		if (c == '\\')
-			res[i++] = getc(stream);
+			res[i++] = getc(stream);//the next char is consumed
 		else
 			res[i++] = c;
 	}
@@ -74,17 +74,16 @@ int parse_map(json *dst, FILE *stream)
 	dst->type = MAP;
 	dst->map.size = 0;
 	dst->map.data = NULL;
-	getc(stream);//apres le '{'
-	char c;
+	char c = getc(stream);
+
+	if (peek(stream) == '}')
+		return 1;
 
 	while (1)
 	{
 		c = peek(stream);
 		if (c != '"')
-		{
-			unexpected(stream);
 			return -1;
-		}
 		dst->map.data = realloc(dst->map.data, (dst->map.size + 1) * sizeof(pair));
 		pair *current = &dst->map.data[dst->map.size];
 		current->key = get_str(stream);
@@ -121,7 +120,7 @@ int parser(json *dst, FILE *stream)
 		unexpected(stream);
 		return -1;
 	}
-	if (isdigit(c) || c == '-' || c == '+')
+	if (isdigit(c))
 		return (parse_int(dst, stream));
 	else if (c == '"')
 	{
@@ -141,6 +140,7 @@ int parser(json *dst, FILE *stream)
 	return (1);
 }
 
+//free_json() added in the main
 int argo(json *dst, FILE *stream)
 {
 	if (parser(dst, stream) == -1)
