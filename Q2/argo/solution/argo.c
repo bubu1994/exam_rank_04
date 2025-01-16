@@ -48,7 +48,7 @@ char *get_str(FILE *stream)
 {
 	char *res = calloc(4096, sizeof(char));
 	int i = 0;
-	char c = getc(stream);//c = premier double guillemet
+	char c = getc(stream);
 
 	while (1)
 	{
@@ -62,7 +62,7 @@ char *get_str(FILE *stream)
 			return NULL;
 		}
 		if (c == '\\')
-			c = getc(stream);//the next char is consumed
+			c = getc(stream);
 		res[i++] = c;
 	}
 	return (res);
