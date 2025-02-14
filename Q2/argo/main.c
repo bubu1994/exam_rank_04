@@ -1,5 +1,7 @@
 #include "argo.h"
 
+//this file is given in the exam to help you test your argo
+
 void	free_json(json j)
 {
 	switch (j.type)
