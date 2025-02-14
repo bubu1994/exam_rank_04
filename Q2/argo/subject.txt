@@ -26,11 +26,14 @@ echo -n input | ./argo /dev/stdin | cat -e		output
 '"bonjour"'						                "bonjour"$
 '"escape!\""'						            "escape!\""$
 '{"tomatoes":42, "potatoes": 234}'		    	{"tomatoes": 42, "potatoes: 234}$
-'{"recursion":{"recursion":{"recursion"}}}'	{"recursion": {"recursion": {"recursion"}}}$
+'{"recursion":{"recursion":{"recursion":"recursion"}}}'	{"recursion": {"recursion": {"recursion":"recursion"}}}$
 '"unfinished string'					        Unexpected end of input$
 '"unfinished string 2\"'				        Unexpected end of input$
 '{"no value?":}'					            Unexpected token '}'$
+'{:12}'							{:12}
 
 
-Note: '{"recursion":{"recursion":{"recursion"}}}' test may be wrong.
-The result should be "Unexpected token '}'" because of ':' missing.
+
+Note: the last test should return 'Unexpected token :' in my opinion, but the moulinette of the exam validate this input
+
+
