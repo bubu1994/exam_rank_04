@@ -25,7 +25,7 @@ echo -n input | ./argo /dev/stdin | cat -e		output
 '1'							1$
 '"bonjour"'						"bonjour"$
 '"escape!\""'						"escape!\""$
-'{"tomatoes":42,"potatoes":234}'		    	{"tomatoes":42,"potatoes:234}$
+'{"tomatoes":42,"potatoes":234}'		    	{"tomatoes":42,"potatoes":234}$
 '{"recursion":{"recursion":{"recursion":"recursion"}}}'	{"recursion":{"recursion":{"recursion":"recursion"}}}$
 '"unfinished string'					Unexpected end of input$
 '"unfinished string 2\"'				Unexpected end of input$
