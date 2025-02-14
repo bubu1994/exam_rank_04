@@ -1,5 +1,6 @@
 #include "argo.h"
 
+//this file is given in the exam
 int	peek(FILE *stream)
 {
 	int	c = getc(stream);
