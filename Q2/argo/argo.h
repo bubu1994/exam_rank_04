@@ -4,6 +4,7 @@
 #include <string.h>
 #include <malloc.h>
 
+//this file is given in the exam
 
 typedef struct	json {
 	enum {
