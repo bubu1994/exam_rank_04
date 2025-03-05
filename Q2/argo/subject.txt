@@ -36,4 +36,3 @@ echo -n input | ./argo /dev/stdin | cat -e		output
 
 Note: the last test should return 'Unexpected token :' in my opinion, but the moulinette of the exam validate this input
 
-
