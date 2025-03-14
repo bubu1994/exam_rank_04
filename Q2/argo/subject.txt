@@ -30,9 +30,4 @@ echo -n input | ./argo /dev/stdin | cat -e		output
 '"unfinished string'					Unexpected end of input$
 '"unfinished string 2\"'				Unexpected end of input$
 '{"no value?":}'					Unexpected token '}'$
-'{:12}'							{:12}$
-
-
-
-Note: the last test should return 'Unexpected token :' in my opinion, but the moulinette of the exam validate this input
-
+'{:12}'							Unexpected token ':'$
